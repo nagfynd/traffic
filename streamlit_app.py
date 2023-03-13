@@ -3,9 +3,7 @@ import numpy as np
 import pandas as pd
 import plost
 
-st.set_page_config(page_title='Plost', page_icon=':tomato:')
 
-"""
 # Fynd
 
 @st.cache
@@ -52,11 +50,3 @@ with st.echo():
         x='a',
         y=('b', 'c'),
         stack='normalize')
-
-"---"
-
-""
-""
-""
-""
-"🍅"
