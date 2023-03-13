@@ -164,7 +164,8 @@ with st.echo():
     plost.area_chart(
         data=datasets['rand'],
         x='a',
-        y=('b', 'c'))
+        y=('b', 'c'),
+    legend='left')
 
 ""
 
