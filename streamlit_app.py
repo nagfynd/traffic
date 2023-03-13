@@ -4,9 +4,6 @@ import pandas as pd
 import plost
 
 
-"""
-# 🍅 Plost
-
 @st.cache
 def get_datasets():
     N = 50
@@ -22,10 +19,10 @@ def get_datasets():
 datasets = get_datasets()
 
 
-"### area_chart()"
+"### Fynd"
 
-with st.expander('Documentation'):
-    st.write(plost.area_chart)
+#with st.expander('Documentation'):
+#    st.write(plost.area_chart)
 ""
 
 with st.echo():
