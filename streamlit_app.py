@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@nagfynd 
-tvst
-/
-plost
-Public
-Fork your own copy of tvst/plost
-Code
-Issues
-5
-Pull requests
-Actions
-Projects
-Security
-Insights
-plost/streamlit_app.py /
-@tvst
-tvst Update streamlit_app.py
-Latest commit 300987f on Feb 12, 2022
- History
- 1 contributor
-560 lines (427 sloc)  10.3 KB
-
 import streamlit as st
 import numpy as np
 import pandas as pd
@@ -37,32 +7,45 @@ st.set_page_config(page_title='Plost', page_icon=':tomato:')
 
 """
 # 🍅 Plost
+
 A deceptively simple plotting library for [Streamlit](https://github.com/streamlit/streamlit).
+
 _“Because you've been writing plots wrong all this time”_
+
 Below you'll find documentation and live examples showing how to use Plost. Of course,
 the first step is:
+
 ```
 pip install streamlit
 pip install plost
 ```
+
 ---
+
 ## Intro
+
 Plost makes it easy to build common plots using the
 [Vega-Lite](https://vega.github.io/vega-lite/)
 library but without having to delve into Vega-Lite specs (unless you're doing
 something tricky), and without having to melt your DataFrame from long format to wide
 format (the bane of most Vega-Lite plots!)
+
 For example, let's say you have a "long-format" table like this:
+
 | time | stock_name | stock_value |
 |------|------------|-------------|
 | ...  | stock1     | 1           |
 | ...  | stock2     | 2           |
 | ...  | stock1     | 100         |
 | ...  | stock2     | 200         |
+
+
 Then you can draw a line chart by simply calling `line_chart()` with some
 column names:
+
 ```python
 import plost
+
 plost.line_chart(
   my_dataframe,
   x='time',  # The name of the column to use for the x axis.
@@ -70,26 +53,35 @@ plost.line_chart(
   color='stock_name', # The name of the column to use for the line colors.
 )
 ```
+
 Simple enough! But what if you instead have a "wide-format" table like this, which is
 super common in reality:
+
 | time | stock1 | stock2 |
 |------|--------|--------|
 | ...  | 1      | 100    |
 | ...  | 2      | 200    |
+
 Normally you'd have to `melt()` the table with Pandas first or create a complex
 Vega-Lite layered plot. But with Plost, you can just specify what you're trying
 to accomplish and it will melt the data internally for you:
+
 ```python
 import plost
+
 plost.line_chart(
   my_dataframe,
   x='time',
   y=('stock1', 'stock2'),  # 👈 This is magic!
 )
 ```
+
 Ok, now let's add a mini-map to make panning/zooming even easier:
+
+
 ```python
 import plost
+
 plost.line_chart(
   my_dataframe,
   x='time',
@@ -97,6 +89,7 @@ plost.line_chart(
   pan_zoom='minimap',  # 👈 This is magic!
 )
 ```
+
 But we're just scratching the surface. Basically the idea is that Plost allows
 you to make beautiful Vega-Lite-driven charts for your most common needs, without
 having to learn about the powerful yet complex language behind Vega-Lite.
@@ -147,6 +140,7 @@ datasets = get_datasets()
 
 """
 ---
+
 ## Basic examples
 """
 
@@ -357,6 +351,7 @@ with st.echo():
 
 """
 ---
+
 ## Histograms
 """
 
@@ -453,8 +448,11 @@ with st.echo():
 
 """
 ---
+
 # Advanced features
+
 ## Vega-Lite encoding dicts
+
 You can use [Vega-Lite encoding dicts](https://vega.github.io/vega-lite/docs/encoding.html) for
 the `x`, `y`, `color`, `size`, and `opacity` arguments to do all sorts of fun things. For example,
 the chart below is computing the mean of the `y` values, grouped by month.
@@ -476,7 +474,9 @@ shorthands](https://altair-viz.github.io/user_guide/encoding.html#encoding-data-
 
 """
 ---
+
 ## Annotations
+
 Use `x_annot` and `y_annot` to add vertical or horizontal lines with annotations:
 """
 
@@ -494,7 +494,9 @@ with st.echo():
 
 """
 ---
+
 ## Minimaps
+
 You can add a minimap to many of the charts above my simply passing `pan_zoom='minimap'`.
 """
 
@@ -556,18 +558,3 @@ with st.echo():
 ""
 ""
 "🍅"
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-plost/streamlit_app.py at master · tvst/plost
