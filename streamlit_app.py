@@ -34,22 +34,3 @@ with st.echo():
     legend='left')
 
 ""
-
-with st.echo():
-    plost.area_chart(
-        data=datasets['rand'],
-        x='a',
-        y=('b', 'c'),
-        opacity=0.5,
-        stack=False)
-
-""
-
-with st.echo():
-    plost.area_chart(
-        data=datasets['rand'],
-        x='a',
-        y=('b', 'c'),
-        stack='normalize')
-    
-""
