@@ -50,3 +50,5 @@ with st.echo():
         x='a',
         y=('b', 'c'),
         stack='normalize')
+    
+""
