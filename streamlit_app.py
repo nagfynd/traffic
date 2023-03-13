@@ -10,7 +10,7 @@ def get_datasets():
     M = 3000
     rand = pd.DataFrame()
     rand['a'] = np.arange(N)
-    rand['b'] = np.random.rand(N)
+    rand['b'] = np.random.rand(M)
     
 
     return dict(
@@ -30,7 +30,7 @@ with st.echo():
     plost.area_chart(
         data=datasets['rand'],
         x='a',
-        y=('b', 'c'),
+        y='b',
     legend='left')
 
 ""
