@@ -6,11 +6,12 @@ import plost
 
 @st.cache
 def get_datasets():
-    N = 50
+    N = 3600
+    M = 3000
     rand = pd.DataFrame()
     rand['a'] = np.arange(N)
     rand['b'] = np.random.rand(N)
-    rand['c'] = np.random.rand(N)
+    
 
     return dict(
         rand=rand,
