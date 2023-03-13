@@ -14,7 +14,9 @@ def get_datasets():
     rand['b'] = np.random.rand(N)
     rand['c'] = np.random.rand(N)
 
-    
+    return dict(
+        rand=rand,
+    )
 
 datasets = get_datasets()
 
